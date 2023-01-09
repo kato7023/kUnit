@@ -1,19 +1,19 @@
-function myFunction() {
+function experiment1() {
   return ['a', 'b', 'c'];
 }
 
-function myFunction2() {
-
+function experiment2() {
+  return null;
 }
 
-function test() {
+function expe_test() {
   const TEST = Tester.init();
 
-  TEST.myFunction
+  TEST.experiment1
     .defineExpectation('とりあえず', '[0] === "a"')
     .assert();
 
-  TEST.myFunction2
+  TEST.experiment2
     .defineExpectation('戻り値がundefined', '=== undefined')
     .assert()
 

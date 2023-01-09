@@ -1,13 +1,13 @@
-function test() {
+function uni_test() {
   const TEST = new TestSuite();
   TEST.myFunction
     .setUp()
     .defineArgs(1,2,3,4,5)
     .run()
-  console.log(TEST.myFunction.log.summary());
+  console.log(TEST.uni_myFunction.log.summary());
 }
 
-function myFunction() {
+function uni_myFunction() {
 
 }
 
@@ -15,6 +15,7 @@ class TestSuite {
 
   constructor() {
     Object.keys(globalThis)
+      .filter(key => typeof globalThis[key] === 'function')
       .forEach(funcName => this[funcName] = new TestCase(globalThis[funcName]));
   }
 
@@ -113,7 +114,7 @@ class TestResult_ {
     this.runCount++;
   }
 
-  errorFailed() {
+  testFailed() {
     this.errorCount++;
   }
 

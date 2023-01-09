@@ -368,7 +368,7 @@ class Tester {
    */
 
   static initForClass(targetClass, ...args) {
-    
+
     const test = {};
     const targetInstance = new targetClass(...args);
     getMethods(targetInstance)
@@ -406,4 +406,4 @@ class Tester {
 }
 
 /** ライブラリ用にグローバル登録 */
-globalThis.Tester = Tester;
+this.Tester = Tester;
