@@ -329,11 +329,11 @@ class Tester {
    *   .defineExpectation('returnが配列である')
    *   .assertArray();
    */
-  static init() {
+  static init(global = globalThis) {
     const test = {};
-    Object.keys(globalThis)
-      .filter(key => typeof globalThis[key] === 'function')
-      .forEach(funcName => test[funcName] = new Tester(globalThis[funcName]));
+    Object.keys(global)
+      .filter(key => typeof global[key] === 'function')
+      .forEach(funcName => test[funcName] = new Tester(global[funcName]));
     return test;
   }
 
